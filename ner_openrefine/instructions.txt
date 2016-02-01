@@ -1,0 +1,78 @@
+
+####NER Round 1####
+Run the GUI:
+	for windows open the .bat file on mac open the .command
+
+Load a Classifier:
+	From the Classifier menu select: load CRF from file
+	In the Stanford NER folder go to the classifiers folder and choose 'english.all.3class.distsim.crf.ser.gz'
+
+Open a text file:
+	We will just use the sample text, but you could:
+	Either open your text file from the File menu
+	Or copy and paste your text in
+
+Saving the results:
+	Under file select Save Tagged File as...
+	Open your output file in a text editor
+	Add a <text> tag at the beginning
+	Add a </text> tag at the end
+
+
+####Openrefine Round 1####
+Run openrefine:
+	open openrefine
+	if it does not take you to a browser open one and go to http://127.0.0.1:3333/
+
+Import data:
+	Click create project
+	Choose your text file or paste from the clipboard
+	import as an XML file
+	When it asks you to click on the first XML element select <text>
+	Then click create project
+
+Clean up columns:
+	In the drop down menu next to text select edit column -> remove this column
+	Under the drop down menu next to text - Person select transpose -> transpose cells across columns into row
+	From column should be text - Person and to Column should be (last column)
+	Choose two new columns and set the Key column to "type" and the value column to "value"
+	make sure "ignore blank cells" is checked
+	click Transpose
+
+Clean up cells:
+	In the drop down next to type select Facet -> text facet
+	On the far leftt where it says text-person select include and do the same for text-location
+	Click edit and change them to location and person respectively
+
+	In the drop down next to value select edit column -> split into several columns...
+	Change the separator to a space
+	hit okay
+
+Save results
+	Under export select Comma Separated Value
+
+###NER Round 2###
+	Preparation:
+		put the text file that we are going to use into the your stanford_ner folder
+		Open a command line/terminal
+		change into that directory using cd
+
+	Tag named entities:
+		copy and paste this into your command line:
+
+ java -mx500m -cp stanford-ner.jar edu.stanford.nlp.ie.crf.CRFClassifier -loadClassifier classifiers/english.all.3class.distsim.crf.ser.gz -textFile part1.txt -outputFormat tsv > part1.tsv
+
+ 		hit enter
+
+####Openrefine Round 2####
+	Read in data:
+		Create a new project (click on openrefine to launch a new session)
+		Import the .tsv file you created
+		Click create project
+
+	Filter data:
+		In the drop down next to O select facet -> text facet
+		On the far left by LOCATION hit include
+
+	Export data:
+		In the upper right select export -> Comma Separated Values
