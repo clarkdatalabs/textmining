@@ -29,6 +29,7 @@ docs <- tm_map(docs,stripWhitespace)
 dtm <- DocumentTermMatrix(docs)
 inspect(dtm[1:9,1:10])
 
+findAssocs(dtm, "capital", corlimit=0.90)
 
 freq <- colSums(as.matrix(dtm))
 length(freq)
