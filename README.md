@@ -1,4 +1,4 @@
-This workshop will provide a basic introduction to R (an open-source statistical package) along with TM (a plugin for R to assist with text-mining). We will cover importing data into R, simple data manipulation and analysis with TM.
+This workshop will provide a basic introduction using R, the Stanford Named Entity Recognizer, and Open Refine for text mining.
 
 If possible, attendees should [download R](https://cran.rstudio.com/) prior to the session.
 
