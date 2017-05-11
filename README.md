@@ -1,4 +1,4 @@
-This workshop will provide a basic introduction using R, the Stanford Named Entity Recognizer, and Open Refine for text mining.
+This workshop will provide an introduction to using R, the Stanford Named Entity Recognizer, and Open Refine for text mining.
 
 If possible, attendees should [download R](https://cran.rstudio.com/) prior to the session.
 
